@@ -1,42 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Vite App</title>
-  <script type="module" crossorigin src="/assets/index-d0cfd2c4.js"></script>
-  <link rel="stylesheet" href="/assets/index-88ca1347.css">
-</head>
-
-<body>
-  <div
-    class="fixed top-0 left-0 w-screen  h-screen content-none opacity-[0.04] z-50 pointer-events-none bg-[url('./noise.gif')]">
-  </div>
-  <section class="bg-black text-white w-screen h-screen transition-opacity duration-300 ease-linear delay-75 hover:opacity-[0.97]">
-    <div
-      class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center"
-    >
-      <div class="mx-auto max-w-3xl text-center">
-        <p class="title text-6xl m-0 p-0 font-ogg text-goldy sm:text-8xl">
-          Mohamed
-        </p>
-        <p class="title text-6xl m-0 p-0 font-ogg text-goldy sm:text-8xl">
-          Amine
-        </p>
-        <p class="title text-6xl m-0 p-0 font-ogg text-goldy sm:text-8xl">
-          Ayadi
-        </p>
-        <p class="title text-6xl m-0 p-0 font-ogg text-goldy sm:text-8xl">
-          A Computer
-        </p>
-      </div>
-    </div>
-  </section>
-  
-  
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <style>
+      *{
+        padding: 0;
+        margin:0;
+      }
+      html{
+        cursor: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

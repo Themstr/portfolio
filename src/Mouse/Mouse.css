@@ -1,0 +1,25 @@
+.cursor{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    position: fixed;
+    z-index: 999;
+}
+.follow-cursor{
+    width:30px;
+    height:30px;
+    background-color: transparent;
+    border: 1px solid white;
+    position: fixed;
+    z-index: 999;
+    border-radius: 50%;
+}
+@media screen and (max-width: 768px) {
+    .follow-cursor{
+        display: none;
+    }
+    .cursor{
+        display: none;
+    }
+}
