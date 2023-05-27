@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { motion as m } from 'framer-motion'
 
 function Index({ cursorsRef }) {
     const menuIcon = useRef(null);
@@ -19,7 +20,12 @@ function Index({ cursorsRef }) {
         }
     }
     return (
-        <>
+        <m.div initial={{
+            y: "100%"
+        }}
+            animate={{ y: "0%" }}
+            transition={{ duration: 0.75, ease: "easeOut" }}
+            exit={{ opacity: 1 }}>
             <header className="gridContainer">
                 <div className="grid">
 
@@ -73,7 +79,7 @@ function Index({ cursorsRef }) {
 
                 </div>
             </section>
-        </>
+        </m.div>
     )
 }
 
