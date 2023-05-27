@@ -1,11 +1,14 @@
-import First from "./First/First"
-import Mouse from "./Mouse/Mouse"
+import { useRef, useState } from 'react'
+import "./sass/main.scss"
+import Index from './Index/Index'
+import Cursor from './Cursor/Cursor'
 function App() {
+  const cursorsRef = useRef(null);
   return (
-    <div>
-      <Mouse/>
-      <First/>
-    </div>
+    <>
+      <Cursor cursorsRef={cursorsRef} />
+      <Index cursorsRef={cursorsRef}/>
+    </>
   )
 }
 

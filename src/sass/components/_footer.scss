@@ -1,0 +1,258 @@
+footer {
+    background-color: $gray0;
+    overflow: hidden;
+
+    .grid {
+
+        // Column 1
+        .col1 {
+            grid-column: 2 / span 4;
+            padding-top: 4rem;
+            padding-bottom: 6.375rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .logo {
+                font-size: 1.75rem;
+                line-height: 110%;
+                color: $gray100
+            }
+
+            .note {
+
+                p {
+                    font-size: 0.625rem;
+                    color: $gray40;
+                }
+
+                a {
+                    display: block;
+                    padding-top: 0.5rem;
+                    color: $gray100;
+                    font-weight: 400;
+                    overflow: hidden;
+                    padding-top: 0.3rem;
+                    padding-bottom: 0.3rem;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 100%;
+                        width: 0;
+                        height: 2px;
+                        background: $gradient;
+                        transition: width 0ms linear 400ms, left 400ms $inOutQuint 0ms;
+                    } 
+
+                    @media (hover: hover) {
+                        &:hover {
+                            &:before {
+                                left: 0;
+                                width: 100%;
+                                transition: left 0ms linear 0ms, width 500ms $inOutQuint 0ms;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Column 2
+        .col2 {
+            grid-column: 6 / span 4;
+            padding-top: 4.25rem;
+            padding-bottom: 6.375rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1.125rem;
+
+            .navCol1,
+            .navCol2 {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+
+                h6 {
+                    font-size: 1.5rem;
+                    line-height: 110%;
+                    margin-bottom: 0.625rem;
+                }
+
+                a {
+                    color: $gray50;
+                    line-height: 110%;
+                    padding: 0.375rem 0;
+                    transition: color 200ms linear 0ms;
+
+                    @media (hover: hover) {
+                        &:hover {
+                            color: $gray100;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Column 3
+        .col3 {
+            background-color: $gray100;
+            grid-column: 10 / span 5;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 1.125rem;
+            row-gap: 0;
+            color: $gray10;
+
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 50%;
+                z-index: 3;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+            }
+
+            .textBox {
+                grid-column: 2 / span 3;
+                padding-top: 4.25rem;
+
+                p {
+                    font-size: 1.5rem;
+                    line-height: 110%;
+                    margin-bottom: 0.625rem;
+                }
+
+                ul {
+                    list-style-type: disc;
+                    li {
+                        padding: 0.375rem 0;
+                        color: $gray30;
+                        line-height: 110%;
+                        padding: 0.375rem 0;
+                    }
+                }
+            }
+        }
+
+        .footerMarquee {
+            z-index: 1;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70vw;
+            height: 2.25rem;
+            background: $gradient;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+
+            p {
+                font-size: 0.875rem;
+                margin-top: 0.2rem;
+                text-transform: uppercase;
+                flex-shrink: 0;
+
+                span {
+                    display: inline-block;
+                    padding-right: 1rem;
+                }
+            }
+        }
+    }
+
+
+
+    //1920 Max Breakpoint
+    @media screen and (min-width: 1921px) {
+        background: linear-gradient(90deg, $gray0 75%, $gray100 75%);
+
+        .grid {
+            .footerMarquee {
+                left: auto;
+                right: 2px;
+                width: 100vw;
+            }
+        }
+    }
+
+
+
+    //960 Breakpoint
+    @media screen and (max-width: 960px) {
+
+        .grid {
+            width: 100%;
+            grid-gap: 0;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+
+            .col1,
+            .col2 {
+                width: 50%;
+            }
+
+            .col3 {display: none;}
+
+            .footerMarquee {
+                width: 100vw;
+                left: -3rem;
+            }
+        }
+    }
+
+
+
+    //640 Breakpoint
+    @media screen and (max-width: 640px) {
+
+        .grid {
+            width: 100%;
+            grid-gap: 0;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+
+            .col1,
+            .col2 {
+                width: 100%;
+                padding: 0;
+            }
+
+            .col1 {
+                padding-top: 4rem;
+                padding-bottom: 2rem;
+                .logo { margin-bottom: 1.5rem;}
+
+                .note {
+                    width: 100%;
+                    padding: 1rem 0;
+                    border-top: 2px solid $gray30;
+                    border-bottom: 2px solid $gray30;
+
+                    a {
+                        padding-bottom: 0;
+                    }
+                }
+            }
+
+            .col2 { padding-bottom: 6rem; }
+
+            .footerMarquee {
+                width: 100vw;
+                left: -1.25rem;
+            }
+        }
+    }
+}

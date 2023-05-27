@@ -1,0 +1,24 @@
+.projectHero {
+
+    .grid {
+
+        .imgOuter {
+            grid-column: 2 / span 12;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; 
+            
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+
+
+
+    //960 Breakpoint
+    @media screen and (max-width: 960px) {
+        padding: 0;
+    }
+}

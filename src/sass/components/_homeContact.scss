@@ -1,0 +1,118 @@
+.homeContact {
+
+    .grid {
+
+        .textBox {
+            grid-column: 2 / span 12;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 10rem;
+            padding-bottom: 9rem;
+            border-top: 2px solid $gray30;
+
+            p {
+                font-size: 13.5vw;
+    
+                .serif {
+                    font-size: 0.9em;
+                }
+            }
+    
+            a { margin-bottom: 1.5vw; }
+        }
+    }
+
+
+
+    //1920 Max Breakpoint
+    @media screen and (min-width: 1920px) {
+        .grid {
+            .textBox {
+                p { font-size: 16.5rem; }
+                a { margin-bottom: 1rem; }
+            }
+        }
+    }
+
+
+
+    //1280 Breakpoint
+    @media screen and (max-width: 1280px) {
+
+        .grid {
+
+            .divider {margin-bottom: 9rem;}
+
+            p {
+                grid-column: 2 / span 9;
+                font-size: 12vw;
+            }
+
+            .btnContainer {
+                grid-column: 11 / span 3;
+            }
+        }
+    }
+
+
+
+    //960 Breakpoint
+    @media screen and (max-width: 960px) {
+
+        .grid {
+
+            .textBox {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 8rem;
+                padding-bottom: 8rem;
+                border-top: 2px solid $gray30;
+    
+                p {
+                    width: 100%;
+                    font-size: 17vw;
+                    text-align: center;
+                }
+        
+                a {
+                    margin-top: 1rem; 
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+
+
+    //640 Breakpoint
+    @media screen and (max-width: 640px) {
+
+        .grid {
+            .textBox {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 6rem;
+                padding-bottom: 6rem;
+                border-top: 2px solid $gray30;
+    
+                p {
+                    width: 100%;
+                    font-size: 30vw;
+                }
+        
+                a {
+                    margin-top: 1rem; 
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
