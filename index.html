@@ -1,13 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+  </style>
+  <link rel="stylesheet" href="./style.css">
+  <title>Vite App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="cursors">
+    <div class="cursor"></div>
+  </div>
+  <nav data-toggled="false" data-transitionable="false">
+    <div id="nav-logo-section" class="nav-section">
+      <a href="/">
+        <i class="fa-solid fa-fire"></i>
+      </a>
+    </div>
+    <div id="nav-mobile-section">
+      <div id="nav-link-section" class="nav-section">
+        <a href="/about.html">ABOUT</a>
+        <a href="/work.html">WORK</a>
+      </div>
+      <div id="nav-social-section" class="nav-section">
+        <a href="#">
+          <i class="fa-brands fa-discord"></i>
+        </a>
+        <a href="https://www.youtube.com/c/Hyperplexed" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="#">
+          <i class="fa-solid fa-circle-info"></i>
+        </a>
+      </div>
+      <div id="nav-contact-section" class="nav-section">
+        <a href="mailto:mohamedamineayadi@icloud.com?subject=Hi!!">GET IN TOUCH</a>
+      </div>
+    </div>
+    <button id="nav-toggle-button" type="button" onclick="handleNavToggle()">
+      <span>Menu</span>
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </nav>
+  <div class="container">
+    <h2 class="hello-text"><span class="boldy">hello!</span> my name is</h2>
+    <h1 class="main">Amine </h1>
+    <h1 class="main">Ayadi</h1>
+    </h1>
+    <p class="text-center"><span class="presentation">I am a guy who loves to work on</span><br />
+      <span class="presentation">the web. I am passionate about building simple</span><br />
+      <span class="presentation"> and elegant solutions to complex problems.</span>
+    </p>
+  </div>
+  <script>
+    const nav = document.querySelector("nav");
+
+    const handleNavToggle = () => {
+      nav.dataset.transitionable = "true";
+
+      nav.dataset.toggled = nav.dataset.toggled === "true" ? "false" : "true";
+    }
+
+    window.matchMedia("(max-width: 800px)").onchange = e => {
+      nav.dataset.transitionable = "false";
+
+      nav.dataset.toggled = "false";
+    };
+  </script>
+  <script type="module">
+    import { gsap, Power4 } from 'gsap';
+
+    const cursor = document.querySelector('.cursor')
+    window.addEventListener('mousemove', (e) => {
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.2
+      })
+    })
+    // Cursor Hover
+    const cursorHover = document.querySelectorAll('a ,.main');
+    cursorHover.forEach(cursorLink => {
+      cursorLink.addEventListener('mouseover', function () {
+        cursor.classList.add(`hover`)
+      })
+      cursorLink.addEventListener('mouseout', function () {
+        cursor.classList.remove(`hover`)
+      })
+    })
+    // Animation
+    const timeline = gsap.timeline();
+    timeline.set(
+      'nav',
+      {
+        y: -100,
+        opacity: 0
+      }
+    ).set('.hello-text',
+      {
+        opacity: 0
+      }
+    ).set('.main',
+      {
+        opacity: 0,
+        y: 48
+      }
+    ).set('.presentation',
+      {
+        opacity: 0
+      }
+    )
+
+    timeline.to(
+      'nav', { duration: 1, opacity: 1, y: 0, ease: Power4.easeOut }
+    ).to(
+      '.main',
+      { duration: 0.5, y: "0%", opacity: 1, stagger: 0.5, ease: Power4.easeOut }
+    ).to(
+      '.hello-text',
+      { duration: 0.5, y: "0%", opacity: 1, stagger: 0.5, ease: Power4.easeInOut }
+    ).to('.presentation', { duration: 0.5, opacity: 1, stagger: 0.5, ease: Power4.easeOut });
+  </script>
+  <script src="https://kit.fontawesome.com/1ee8f271b9.js"></script>
+</body>
+
 </html>
